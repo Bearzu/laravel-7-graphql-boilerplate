@@ -1,0 +1,39 @@
+type Organization {
+    name: String
+    is_permanent: Boolean
+}
+
+extend type Mutation @middleware(checks:["auth:api"]){
+    createOrganization(input: OrganizationInput @spread): Organization 
+        @create
+    updateOrganization(input: OrganizationInput @spread): Organization 
+        @update
+    removeFromOrganization(input: RemoveFromOrganizationInput @spread): Organization 
+        @field(resolver: "RichardAbear\\Syndicate\\GraphQL\\Mutations\\OrganizationMutations@removeFromOrganization")
+    inviteIntoOrganization(input: InviteIntoOrganizationInput @spread): InvitationStatus
+        @field(resolver: "RichardAbear\\Syndicate\\GraphQL\\Mutations\\OrganizationMutations@inviteIntoOrganization")
+    acceptInvitation(input: AcceptInvitationInput @spread): InvitationStatus
+        @field(resolver: "RichardAbear\\Syndicate\\GraphQL\\Mutations\\OrganizationMutations@acceptInvitation")
+}
+
+type InvitationStatus {
+    message: String
+}
+
+input OrganizationInput {
+    name: String
+}
+
+input RemoveFromOrganizationInput {
+    user_id: ID!
+    organization_id: ID!
+}
+
+input InviteIntoOrganizationInput {
+    email: String
+    organization_id: ID!
+}
+
+input AcceptInvitationInput {
+    token: String
+}

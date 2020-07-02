@@ -3,55 +3,40 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Joselfonseca\LighthouseGraphQLPassport\GraphQL\Mutations\Register;
 use Nuwave\Lighthouse\Testing\MakesGraphQLRequests;
+use RichardAbear\Syndicate\Models\Organization;
 
 class UserTest extends TestCase
 {
     use MakesGraphQLRequests, RefreshDatabase;
 
-    public function testUserRegistration(): void
+    protected function createUser(): User
     {
-        $this->graphQL(/** @lang GraphQL */'
-            mutation {
-                register(input: {name:"test", email: "test@gmail.com",password: "password", password_confirmation:"password"}) {
-                  status
-                  tokens {
-                    access_token
-                    refresh_token
-                    expires_in
-                    token_type
-                    user {
-                      id
-                      name
-                      email
-                    }
-                  } 
-                }
-              }
-        ')->assertJson([
-            "data" => [
-                "status" => "SUCCESS"
-            ]
+        $user = new User([
+            'name' => 'Test',
+            'email' => 'test@gmail.com',
+            'password' => 'password',
         ]);
+        $user->save();
+        return $user;
     }
 
-    public function testUserLogin(): void
+    public function testCanCreateUser(): void
     {
-        $user = new User(['email' => 'richard@bearzu.com', 'password' => Hash::make('password')]);
+        $user = $this->createUser();
+        $this->assertInstanceOf(User::class, $user);
+        $this->assertEquals('test@gmail.com', $user->email);
+    }
 
-        $this->graphQL(/** @lang GraphQL */ '
-            {
-                login(input: {
-                    username: "richard@bearzu.com"
-                    password: "password"
-                }) {
-                    access_token   
-                }
-            }
-        ');
+    public function testUserHasOrganization(): void
+    {
+        $user = $this->createUser();
+        $this->assertInstanceOf(Organization::class, $user->permanentOrganization());
     }
 }

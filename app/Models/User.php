@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use Owchzzz\Syndicate\Traits\HasOrganization;
+use RichardAbear\Syndicate\Traits\HasOrganization;
 
 class User extends Authenticatable
 {

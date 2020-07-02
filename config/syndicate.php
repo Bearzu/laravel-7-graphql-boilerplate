@@ -14,5 +14,17 @@ return [
     /**
      * Create a default organization for the user
      */
-    'create_default_organization' => true
+    'create_default_organization' => true,
+
+    /**
+     * If this option is set to true, members that are invited into organizations will need to accept/decline
+     */
+    'invites' => true,
+
+    /**
+     * Define the mail templates to be used. these will be published by default
+     */
+    'mail' => [
+        'member_invite' => 'mail.memberinvite'
+    ]
 ];

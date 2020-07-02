@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93a25990618ca9525cf70c418bd15fdb",
+    "content-hash": "ba8d4f39667b5169acaa039ed8908183",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2255,42 +2255,6 @@
             "time": "2020-06-17T14:59:55+00:00"
         },
         {
-            "name": "owchzzz/laravel-syndicate",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../packages/laravel-syndicate",
-                "reference": "469e4cd7674e9d848a71dc92e99a6066a132591a"
-            },
-            "require": {
-                "illuminate/database": "^7.18",
-                "illuminate/support": "^7.18"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Owchzzz\\Syndicate\\SyndicateServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Owchzzz\\Syndicate\\": "src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Richard Abear",
-                    "email": "owchzzz@gmail.com"
-                }
-            ],
-            "description": "Laravel Syndicate is a package that gives the power of teams and organizations to laravel projects",
-            "transport-options": {
-                "symlink": true
-            }
-        },
-        {
             "name": "paragonie/random_compat",
             "version": "v9.99.99",
             "source": {
@@ -3077,6 +3041,42 @@
                 "uuid"
             ],
             "time": "2020-03-29T20:13:32+00:00"
+        },
+        {
+            "name": "richardabear/laravel-syndicate",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/laravel-syndicate",
+                "reference": "0868d8e724e97117718473b897e10cf233478a6c"
+            },
+            "require": {
+                "illuminate/database": "^7.18",
+                "illuminate/support": "^7.18"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RichardAbear\\Syndicate\\SyndicateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RichardAbear\\Syndicate\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Richard Abear",
+                    "email": "richardabear@gmail.com"
+                }
+            ],
+            "description": "Laravel Syndicate is a package that gives the power of teams and organizations to laravel projects",
+            "transport-options": {
+                "symlink": true
+            }
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5040,16 +5040,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v0.13.8",
+            "version": "v0.13.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8"
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6829ae58f4c59121df1f86915fb9917a2ec595e8",
-                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
                 "shasum": ""
             },
             "require": {
@@ -5088,7 +5088,7 @@
                 "api",
                 "graphql"
             ],
-            "time": "2019-08-25T10:32:47+00:00"
+            "time": "2020-07-02T05:49:25+00:00"
         }
     ],
     "packages-dev": [
@@ -7086,7 +7086,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "owchzzz/laravel-syndicate": 20
+        "richardabear/laravel-syndicate": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -17,10 +17,10 @@
         "laravel/passport": "^9.3",
         "laravel/tinker": "^2.0",
         "nuwave/lighthouse": "^4.15",
-        "owchzzz/laravel-syndicate": "@dev"
+        "richardabear/laravel-syndicate": "@dev"
     },
     "repositories": {
-        "owchzzz/laravel-syndicate": {
+        "richardabear/laravel-syndicate": {
             "type": "path",
             "url": "../packages/laravel-syndicate",
             "options": {
